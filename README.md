@@ -1,34 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Packages
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```json
+{
+  "dependencies": {
+    "@types/node": "20.3.1",
+    "@types/react": "18.2.13",
+    "@types/react-dom": "18.2.6",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.43.0",
+    "eslint-config-next": "13.4.7",
+    "next": "13.4.7",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.1.3"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-tailwindcss": "^0.3.0"
+  }
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Modification
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Create Next App
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+pnpm create next-app
 
-## Learn More
+√ Would you like to use TypeScript with this project? ... Yes
+√ Would you like to use ESLint with this project? ... Yes
+√ Would you like to use Tailwind CSS with this project? ... Yes
+√ Would you like to use `src/` directory with this project? ... Yes
+√ Use App Router (recommended)? ... Yes
+√ Would you like to customize the default import alias? ... No
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Add Packages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm install -D
+  eslint-config-prettier
+  prettier
+  prettier-plugin-organize-imports
+  prettier-plugin-tailwindcss
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Modify Files
 
-## Deploy on Vercel
+- `.eslintrc.json`
+  ```json
+  {
+    "extends": ["next/core-web-vitals", "prettier"]
+  }
+  ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `next.config.js`
+  ```javascript
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    experimental: {
+      serverActions: true,
+    },
+  };
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  module.exports = nextConfig;
+  ```
+
+- `prettier.config.js`
+  ```javascript
+  module.exports = {
+    plugins: ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+    pluginSearchDirs: false,
+  };
+
+  ```
