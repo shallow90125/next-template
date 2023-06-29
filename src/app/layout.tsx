@@ -1,7 +1,7 @@
-import { Inter } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Noto_Sans_JP({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -15,19 +15,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + " flex h-screen w-screen flex-col"}>
-        <header className=" grid  h-12 grid-cols-12 gap-1 bg-slate-500 p-1">
-          <h1 className=" col-span-12 flex items-center justify-center">
-            header
-          </h1>
+      <body
+        className={
+          font.className +
+          " flex h-screen w-screen flex-col divide-y divide-neutral-700 bg-neutral-900 text-neutral-300"
+        }
+      >
+        <header className=" flex h-16 flex-none items-center justify-center">
+          header
         </header>
-        <main className=" grid flex-grow grid-cols-12 gap-1 p-1">
+        <main className=" flex flex-grow items-center justify-center">
           {children}
         </main>
-        <footer className=" grid  h-12 grid-cols-12 gap-1 bg-slate-500 p-1">
-          <h1 className=" col-span-12 flex items-center justify-center">
-            footer
-          </h1>
+        <footer className=" flex h-16 flex-none items-center justify-center">
+          footer
         </footer>
       </body>
     </html>
