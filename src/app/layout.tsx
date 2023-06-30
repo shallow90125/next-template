@@ -18,16 +18,14 @@ export default function RootLayout({
       <body
         className={
           font.className +
-          " flex h-screen w-screen flex-col divide-y divide-neutral-700 bg-neutral-900 text-neutral-300"
+          " flex h-[100dvh] w-[100dvw] flex-col divide-y divide-neutral-700 bg-neutral-900 text-neutral-300"
         }
       >
-        <header className=" flex h-16 flex-none items-center justify-center">
+        <header className=" grid h-16 flex-none place-items-center">
           header
         </header>
-        <main className=" flex flex-grow items-center justify-center">
-          {children}
-        </main>
-        <footer className=" flex h-16 flex-none items-center justify-center">
+        <main className=" grid flex-grow">{children}</main>
+        <footer className=" grid h-16 flex-none place-items-center">
           footer
         </footer>
       </body>
